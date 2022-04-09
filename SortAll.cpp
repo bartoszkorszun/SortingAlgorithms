@@ -105,6 +105,8 @@ int *generate_v_shape_array(int length) {
 
 //INSERTION SORT
 
+bool wait;
+
 void insertion_sort(int *a, int length) {
 	int tmp = 1;
 	cout << "Insertion Sort... \n";
@@ -117,6 +119,10 @@ void insertion_sort(int *a, int length) {
 		if (i == length - 1){
 			currentTime = GetTickCount() - startTime;
 			cout << "Sorting comleted...\n\nSorting time: " << currentTime << "ms\n";
+		}
+		if (GetTickCount() - startTime > 3000 && wait){
+			cout << "Sorting in progress please wait...\n";
+			wait = false;
 		}
 	}
 }
@@ -139,6 +145,10 @@ void selection_sort(int *a, int length) {
 		if (i == 2){
 			currentTime = GetTickCount() - startTime;
 			cout << "Sorting comleted...\n\nSorting time: " << currentTime << "ms\n";
+		}
+		if (GetTickCount() - startTime > 3000 && wait){
+			cout << "Sorting in progress please wait...\n";
+			wait = false;
 		}
 	}
 }
@@ -165,6 +175,10 @@ void heap_sort(int *a, int length) {
 	
 	for (int i = length / 2 - 1; i >= 0; i--) {
 		heapify(a, length, i);
+		if (GetTickCount() - startTime > 3000 && wait){
+			cout << "Sorting in progress please wait...\n";
+			wait = false;
+		}
 	}
 	for (int i = length - 1; i >= 0; i--) {
 		swap(&a[0], &a[i]);
@@ -172,6 +186,10 @@ void heap_sort(int *a, int length) {
 		if (i == 0){
 			currentTime = GetTickCount() - startTime;
 			cout << "Sorting comleted...\n\nSorting time: " << currentTime << "ms\n";
+		}
+		if (GetTickCount() - startTime > 3000 && wait){
+			cout << "Sorting in progress please wait...\n";
+			wait = false;
 		}
 	}
 }
@@ -194,6 +212,10 @@ void merge(int *a, int length, int p) {
 		else if (i == mergeLength){
 			mergeCurrentTime = GetTickCount() - mergeStartTime;
 			cout << "Sorting comleted...\n\nSorting time: " << mergeCurrentTime << "ms\n";
+		}
+		if (GetTickCount() - mergeStartTime > 3000 && wait){
+			cout << "Sorting in progress please wait...\n";
+			wait = false;
 		}
 	}
 	free(A);
@@ -316,6 +338,8 @@ string doYouReallyWannaExitThisAmazingProgramme(){
 int main(int argc, char **argv) {
 	
 	do{	
+		
+		wait = true;
 		
 		string whichTab = chooseTab();
 		

@@ -33,4 +33,4 @@ In case you are using other compiler you can create your own project and then co
 
 ## How to use Project
 
-I think I made the application very self descriptive. After you run the project you will be asked to choose which array and algorithm you want to use and also how long do you want your array to be. After that the algorithm will be executed and the time will be measured. At the end programme will ask you if you want to exit. If no whole process will be repeated untill you want to exit the application.
+I think I made the application very self-descriptive. After you run the project you will be asked to choose which array and algorithm you want to use and also how long do you want your array to be. After that the algorithm will be executed and the time will be measured. At the end programme will ask you if you want to exit. If no whole process will be repeated untill you want to exit the application.
